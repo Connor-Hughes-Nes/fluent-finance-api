@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def create
     # initialize and execute the command
     # NOTE: `.call` is a shortcut for `.new(args).call`
-    command = AuthenticateUser.call(session_params[:email], session_params[:password])
+    command = AuthenticateUser.call(session_params[:email], session_params[:password], session_params[:role])
 
     # check command outcome
     if command.success?
@@ -18,6 +18,6 @@ class SessionsController < ApplicationController
   private
 
   def session_params
-    params.require(:session).permit(:email, :password)
+    params.require(:session).permit(:email, :password, :role)
   end
 end

@@ -185,6 +185,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4)
+  simple_command
   rspec-rails
   simple_command
   tzinfo-data
