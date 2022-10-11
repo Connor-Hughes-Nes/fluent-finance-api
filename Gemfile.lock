@@ -187,6 +187,7 @@ DEPENDENCIES
   rails (~> 7.0.4)
   simple_command
   rspec-rails
+  simple_command
   tzinfo-data
 
 RUBY VERSION

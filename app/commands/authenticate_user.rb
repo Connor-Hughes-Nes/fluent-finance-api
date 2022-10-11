@@ -11,6 +11,15 @@ class AuthenticateUser
     @role = role
   end
 
+  ## config/locales/en.yml
+  # en:
+  #   activemodel:
+  #     errors:
+  #       models:
+  #         authenticate_user:
+  #           failure: Wrong email or password
+
+
   # mandatory: define a #call method. its return value will be available
   #            through #result
   def call
