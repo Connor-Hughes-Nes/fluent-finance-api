@@ -6,7 +6,7 @@ describe AuthenticateUser do
       let(:username) { 'correct_user' }
       let(:password) { 'correct_password' }
 
-      it 'succeeds' do
+      it 'succeeds authentication' do
         expect(context).to be_success
       end
     end
