@@ -83,6 +83,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rspec-mocks (v3.11.1, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-rails (v5.1.2, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-support (v3.11.1, rbenv: 3.1.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="simple_command (v1.0.1, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v1.2.1, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="timeout (v0.3.0, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v2.0.5, rbenv: 3.1.1) [gem]" level="application" />
