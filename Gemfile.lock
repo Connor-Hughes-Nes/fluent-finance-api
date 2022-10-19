@@ -185,13 +185,12 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4)
-  simple_command
   rspec-rails
   simple_command
   tzinfo-data
 
 RUBY VERSION
-   ruby 3.1.1p18
+   ruby 3.1.2p20
 
 BUNDLED WITH
-   2.2.27
+   2.3.24
