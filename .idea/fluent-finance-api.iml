@@ -43,6 +43,7 @@
     <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.13.0, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.4, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v2.3.24, RVM: ruby-3.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cancancan (v3.4.0, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.1.10, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.6, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="debug (v1.6.2, RVM: ruby-3.1.2) [gem]" level="application" />
@@ -105,6 +106,7 @@
         <option value="active_record:multi_db" />
         <option value="application_record" />
         <option value="benchmark" />
+        <option value="cancan:ability" />
         <option value="channel" />
         <option value="controller" />
         <option value="factory_bot:model" />
@@ -158,6 +160,7 @@
         <option value="active_record:multi_db" />
         <option value="application_record" />
         <option value="benchmark" />
+        <option value="cancan:ability" />
         <option value="channel" />
         <option value="controller" />
         <option value="factory_bot:model" />
