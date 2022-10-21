@@ -19,7 +19,6 @@ class AuthenticateUser
   #         authenticate_user:
   #           failure: Wrong email or password
 
-
   # mandatory: define a #call method. its return value will be available
   #            through #result
   def call

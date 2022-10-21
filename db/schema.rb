@@ -22,5 +22,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_19_115734) do
     t.string "first_name"
     t.string "last_name"
   end
-
 end
