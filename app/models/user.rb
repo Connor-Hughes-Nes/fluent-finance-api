@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
+# rubocop:disable Style/Documentation
 class User < ApplicationRecord
-  enum role: [:admin, :user]
+  enum role: %i[admin user]
 
   # has_many categories, through: :transactions
   # has_many transactions
@@ -25,6 +28,7 @@ class User < ApplicationRecord
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
     return false if digest.nil?
+
     BCrypt::Password.new(digest).is_password?(token)
   end
 
@@ -35,3 +39,4 @@ class User < ApplicationRecord
   # end
 
 end
+# rubocop:enable Style/Documentation
