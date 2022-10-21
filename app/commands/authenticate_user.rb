@@ -19,15 +19,16 @@ class AuthenticateUser
   #         authenticate_user:
   #           failure: Wrong email or password
 
-
   # mandatory: define a #call method. its return value will be available
   #            through #result
   def call
+    # return user if (user = User.find_by(email: @email)&.authenticate(@password))
     if (user = User.find_by(email: @email)&.authenticate(@password))
       return user
     else
       errors.add(:base, :failure)
     end
+
     nil
   end
 end
