@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   post '/auth/login', to: 'authentication#login'
   get '/*a', to: 'application#not_found'
   # Defines the root path route ("/")
-  root "users#index"
+  root 'users#index'
 end
