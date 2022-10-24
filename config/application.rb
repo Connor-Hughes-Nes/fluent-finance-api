@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -7,6 +9,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module FluentFinanceApi
+  # application file to store, view and update app config
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
@@ -24,6 +27,7 @@ module FluentFinanceApi
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.autoload_paths << “# {Rails.root}/lib”
+    config.autoload_paths << "#{Rails.root}/lib"
+    config.autoload_paths << "#{Rails.root}/lib/rails"
   end
 end
