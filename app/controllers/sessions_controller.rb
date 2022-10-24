@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
+# Controller to manage user sessions by way of JWT auth tokens
 class SessionsController < ApplicationController
   def create
-    # initialize and execute the command
     # NOTE: `.call` is a shortcut for `.new(args).call`
     command = AuthenticateUser.call(session_params[:email], session_params[:password], session_params[:role])
 
