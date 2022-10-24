@@ -2,24 +2,24 @@
 
 # Controller to manage user sessions by way of JWT auth tokens
 class SessionsController < ApplicationController
-  def create
-    # NOTE: `.call` is a shortcut for `.new(args).call`
-    command = AuthenticateUser.call(session_params[:email], session_params[:password], session_params[:role])
+  before_action :authorize_request, except: :login
 
-    # check command outcome
-    if command.success?
-      # command#result will contain the user instance, if found
-      session[:user_token] = command.result.secret_token
-      redirect_to root_path
+  # POST /auth/login
+  def login
+    @user = User.find_by_email(params[:email])
+    if @user&.authenticate(params[:password])
+      token = JsonWebToken.encode(id: @user.id)
+      time = Time.now + 24.hours.to_i
+      render json: { token: token, exp: time.strftime("%m-%d-%Y %H:%M"),
+                     first_name: @user.first_name }, status: :ok
     else
-      flash.now[:alert] = t(command.errors.full_messages.to_sentence)
-      render :new
+      render json: { error: 'unauthorized' }, status: :unauthorized
     end
   end
 
   private
 
-  def session_params
-    params.require(:session).permit(:email, :password, :role)
+  def login_params
+    params.permit(:email, :password)
   end
 end
