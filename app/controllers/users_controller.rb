@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Manage users
 class UsersController < ApplicationController
 
   before_action :authorize_request, except: :create
@@ -41,7 +44,7 @@ class UsersController < ApplicationController
   private
 
   def find_user
-    @user = User.find_by_username!(params[:id])
+    @user = User.find_by(params[:id])
   rescue ActiveRecord::RecordNotFound
     render json: { errors: 'User not found' }, status: :not_found
   end
