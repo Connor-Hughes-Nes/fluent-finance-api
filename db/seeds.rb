@@ -9,9 +9,17 @@ if User.all.empty?
   User.create!(
     first_name: 'Connor',
     last_name: 'Hughes',
+    email: 'chughes@neslotech.co.za',
     password: '123123',
     password_confirmation: '123123',
-    password_digest:'123123',
     role: 'user',
   )
+  User.create!(
+    first_name: 'Ryan',
+    last_name: 'Kennedy',
+    email: 'jeffthejeffington@gmail.com',
+    password: '123123',
+    password_confirmation: '123123',
+    role: 'admin',
+    )
 end
