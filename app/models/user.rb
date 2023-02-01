@@ -3,6 +3,10 @@
 class User < ApplicationRecord
   has_secure_password
 
+  has_many :transactions
+  has_many :categories
+  has_many :budgets
+
   validates :email, presence: true, uniqueness: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :first_name, presence: true
