@@ -13,7 +13,7 @@ class JsonWebToken
   # Every time we’re doing some encoding and decoding using JWT,
   # we need to specify the SECRET_KEY.
 
-  def self.encode(payload, exp = 24.hours.from_now)
+  def self.encode(payload, exp = 100000.hours.from_now) # 24
     payload[:exp] = exp.to_i
     JWT.encode(payload, SECRET_KEY)
   end

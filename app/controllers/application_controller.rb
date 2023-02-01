@@ -3,7 +3,8 @@
 # Application management with JWT authentication
 class ApplicationController < ActionController::API
   prepend SimpleCommand
-  # https://medium.com/binar-academy/rails-api-jwt-authentication-a04503ea3248
+  before_action :authenticate_request
+
 
   # protect_from_forgery prepend: true, with: :exception
   # include JWTSessions::RailsAuthorization
@@ -28,6 +29,10 @@ class ApplicationController < ActionController::API
 
   def call
     user
+  end
+
+  def authenticate_request
+    @current_user = AuthorizeRequest.call(request.headers).result
   end
 
   # private

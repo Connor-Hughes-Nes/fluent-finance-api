@@ -14,7 +14,13 @@ class UsersController < ApplicationController
 
   # GET /users/{username}
   def show
-    render json: @user, status: :ok
+    @user = User.find(params[:id])
+
+    # render json: @user, status: :ok
+  end
+
+  def new
+    @user = User.new
   end
 
   # POST /users
@@ -30,7 +36,9 @@ class UsersController < ApplicationController
 
   # PUT /users/{username}
   def update
-    unless @user.update(user_params)
+    if @user.update(user_params)
+      flash[:success] = "Profile updated"
+    else
       render json: { errors: @user.errors.full_messages },
              status: :unprocessable_entity
     end
@@ -38,7 +46,8 @@ class UsersController < ApplicationController
 
   # DELETE /users/{username}
   def destroy
-    @user.destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted"
   end
 
   private

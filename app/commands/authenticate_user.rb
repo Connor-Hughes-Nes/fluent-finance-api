@@ -23,8 +23,8 @@ class AuthenticateUser
   #            through #result
   def call
     # return user if (user = User.find_by(email: @email)&.authenticate(@password))
-    if (user = User.find_by(email: @email)&.authenticate(@password))
-      return user
+    if (@user = User.find_by(email: @email)&.authenticate(@password))
+      return @user
     else
       errors.add(:base, :failure)
     end
