@@ -1,24 +1,14 @@
-# README
+Fluent Finance API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby verion:
+  3.1.2
+  
+* Rails verion:
+  7.0.2
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
+* Database creation & initialization
+  `rails db:create`
+  `rails db:migrate`
 
 * How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  `bundle exec rspec`
