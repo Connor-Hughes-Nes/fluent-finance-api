@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'users#index'
 
+  # get '/budget' => 'budget#index'
+  # get '/category' => 'category#index'
+  # get '/transaction' => 'transaction#index'
 
-  get '/budget' => 'budget#index'
-  get '/category' => 'category#index'
-  get '/transaction' => 'transaction#index'
+  resources :budget, only: [:create]
 end
