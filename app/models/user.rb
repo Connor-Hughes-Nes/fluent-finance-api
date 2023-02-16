@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   has_many :transactions
   has_many :categories
-  has_many :budgets
+  has_one :budget
 
   validates :email, presence: true, uniqueness: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
@@ -16,6 +16,4 @@ class User < ApplicationRecord
             if: -> { new_record? || !password.nil? }
 
   enum role: { admin: 0, user: 1 }
-
-
 end

@@ -10,6 +10,15 @@ class BudgetController < ApplicationController
     end
   end
 
+  def calculate_budget
+    budget = params[:budget].to_f
+    expense = params[:expense].to_f
+
+    resulting_budget = budget - expense
+
+    render json: { result: resulting_budget }
+  end
+
   private
 
   def budget_params
