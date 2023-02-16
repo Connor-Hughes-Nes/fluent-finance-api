@@ -17,9 +17,9 @@ class TransactionController < ApplicationController
   end
 
   def create
-    @transaction = transactions.new(transaction_params)
+    @transaction = Transaction.new(transaction_params)
 
-    if @transaction.save transaction_params[:transaction_type], transaction_params[:amount]
+    if @transaction.save #transaction_params[:transaction_type], transaction_params[:amount]
       render json: @transaction, status: :created
     else
       render json: @transaction.errors, status: :unprocessable_entity
@@ -71,7 +71,7 @@ class TransactionController < ApplicationController
 
   def transaction_params
     # params.require(:transaction).permit(:transaction_type, :amount)
-    params.permit :transaction_type, :amount
+    params.permit :transaction_type, :transaction_amount
 
   end
 end

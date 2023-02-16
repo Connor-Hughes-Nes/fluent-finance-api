@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   #   resources :income
   # end
 
-  # resources :transaction # :controller => 'transaction'
+  resources :transaction # :controller => 'transaction'
   post 'transaction', to: 'transaction#create'
 
   # get '/*a', to: 'application#not_found'
