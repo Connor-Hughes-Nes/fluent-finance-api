@@ -1,3 +1,4 @@
+# TransactionController
 class TransactionController < ApplicationController
   # :transaction_type
   # :transaction_amount
@@ -16,12 +17,10 @@ class TransactionController < ApplicationController
   end
 
   def create
-    # @income = Transaction.find_by(id: params[:income_id])
     @transaction = transactions.new(transaction_params)
-                # @income.
 
-    if @transaction.save
-      render json: @transaction, status: :created, location: @transaction
+    if @transaction.save transaction_params[:transaction_type], transaction_params[:amount]
+      render json: @transaction, status: :created
     else
       render json: @transaction.errors, status: :unprocessable_entity
     end
@@ -31,7 +30,7 @@ class TransactionController < ApplicationController
     @total_income = Transaction.new(income_params)
 
     if @total_income.save
-      render json: @total_income, status: :created, location: @total_income
+      render json: @total_income, status: :created
     else
       render json: @total_income.errors, status: :unprocessable_entity
     end
@@ -41,7 +40,7 @@ class TransactionController < ApplicationController
     @expense = Transaction.new(income_params)
 
     if @expense.save
-      render json: @expense, status: :created, location: @expense
+      render json: @expense, status: :created
     else
       render json: @expense.errors, status: :unprocessable_entity
     end
@@ -53,7 +52,7 @@ class TransactionController < ApplicationController
 
     resulting_budget = budget - expense
 
-    render json: {result: resulting_budget}
+    render json: { result: resulting_budget }
   end
 
   private
@@ -66,9 +65,13 @@ class TransactionController < ApplicationController
     params.require(:income).permit(:income_type)
   end
 
+  # def set_transaction
+  #   @transaction = transaction.find
+  # end
+
   def transaction_params
-    params.require(:transaction).permit(:transaction_type, :amount)
+    # params.require(:transaction).permit(:transaction_type, :amount)
+    params.permit :transaction_type, :amount
+
   end
-
-
 end

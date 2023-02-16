@@ -2,7 +2,6 @@
 
 # JSON Web token
 class JsonWebToken
-
   SECRET_KEY = Rails.application.secrets.secret_key_base.to_s
 
   # https://medium.com/binar-academy/rails-api-jwt-authentication-a04503ea3248

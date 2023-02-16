@@ -2,7 +2,6 @@
 
 # Manage users
 class UsersController < ApplicationController
-
   before_action :authorize_request, except: :create
   before_action :find_user, except: %i[create index]
 
@@ -55,7 +54,7 @@ class UsersController < ApplicationController
   def find_user
     @user = User.find_by(params[:id])
   rescue ActiveRecord::RecordNotFound
-    render json: { errors: 'User not found' }, status: :not_found
+    render json: { errors: "User not found" }, status: :not_found
   end
 
   def user_params
@@ -63,7 +62,7 @@ class UsersController < ApplicationController
     #   :first_name, :last_name, :email, :password, :password_confirmation
     # )
     params.require(
-      :user).permit(:first_name, :last_name, :email, :password, :password_confirmation
-    )
+      :user
+    ).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 end
