@@ -5,22 +5,22 @@ class AuthenticateUser
   include ActiveModel::Validations
 
   # optional, initialize the command with some arguments
-  def initialize(email, password, role)
-    @email = email
-    @password = password
-    @role = role
-  end
-
-  # mandatory: define a #call method. its return value will be available through #result
+  # def initialize(email, password, role)
+  #   @email = email
+  #   @password = password
+  #   @role = role
+  # end
   #
-  def call
-    # return user if (User.find_by(email: @email)&.authenticate(@password))
-    if (@user = User.find_by(email: @email)&.authenticate(@password))
-      return @user
-    else
-      errors.add(:base, :failure)
-    end
-
-    nil
-  end
+  # # mandatory: define a #call method. its return value will be available through #result
+  # #
+  # def call
+  #   # return user if (User.find_by(email: @email)&.authenticate(@password))
+  #   if (@user = User.find_by(email: @email)&.authenticate(@password))
+  #     return @user
+  #   else
+  #     errors.add(:base, :failure)
+  #   end
+  #
+  #   nil
+  # end
 end

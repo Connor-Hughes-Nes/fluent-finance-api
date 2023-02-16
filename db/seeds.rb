@@ -7,19 +7,19 @@
 #   Character.create(name: "Luke", movie: movies.first)
 if User.all.empty?
   User.create!(
-    first_name: 'Connor',
-    last_name: 'Hughes',
-    email: 'chughes@neslotech.co.za',
-    password: '123123',
-    password_confirmation: '123123',
-    role: 'user',
+    first_name: "Connor",
+    last_name: "Hughes",
+    email: "chughes@neslotech.co.za",
+    password: "123123",
+    password_confirmation: "123123",
+    role: "user",
   )
   User.create!(
-    first_name: 'Ryan',
-    last_name: 'Kennedy',
-    email: 'jeffthejeffington@gmail.com',
-    password: '123123',
-    password_confirmation: '123123',
-    role: 'admin',
-    )
+    first_name: "Ryan",
+    last_name: "Kennedy",
+    email: "jeffthejeffington@gmail.com",
+    password: "123123",
+    password_confirmation: "123123",
+    role: "admin",
+  )
 end

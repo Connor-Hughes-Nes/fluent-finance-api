@@ -1,5 +1,4 @@
 class BudgetController < ApplicationController
-
   def create
     @budget = Budget.new(budget_params)
 
@@ -25,5 +24,4 @@ class BudgetController < ApplicationController
     params.require(:budget).permit(:budget_amount)
     # puts budget_params.inspect
   end
-
 end

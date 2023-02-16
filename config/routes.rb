@@ -3,13 +3,15 @@ Rails.application.routes.draw do
 
   resources :users, param: :role
   # post '/auth/login', to: 'authentication#login'
-  post 'authenticate', to: 'authentication#authenticate'
+
+  # TODO: Uncomment when re-doing auth
+  # post 'authenticate', to: 'authentication#authenticate'
 
   #   resources :income
   # end
 
-  resources :transactions, :controller => "transaction"
-
+  # resources :transaction # :controller => 'transaction'
+  post 'transaction', to: 'transaction#create'
 
   # get '/*a', to: 'application#not_found'
 
