@@ -19,17 +19,25 @@ class TransactionController < ApplicationController
   def create
     @transaction = Transaction.new(transaction_params)
 
-    if @transaction.save #transaction_params[:transaction_type], transaction_params[:amount]
+    if @transaction.save
       render json: @transaction, status: :created
     else
       render json: @transaction.errors, status: :unprocessable_entity
     end
   end
 
-  def capture_income
-    @total_income = Transaction.new(income_params)
+  # TODO: Check how i can do a show, with a specific value (expenses)
+  #  + Pluralizing such values
 
-    if @total_income.save
+  def show_expenses
+    @expenses = Transaction(:expense)
+    render json: @expenses
+  end
+
+  def capture_income
+    @total_income = Transaction.new(transaction_params)
+
+    if @total_income.save # total_income: params[:transaction_params]
       render json: @total_income, status: :created
     else
       render json: @total_income.errors, status: :unprocessable_entity
@@ -47,12 +55,17 @@ class TransactionController < ApplicationController
   end
 
   def calculate_budget
-    budget = params[:budget].to_f
-    expense = params[:expense].to_f
+    # uses a permitted param of a parameter
+    @total_income = params[:total_income].to_f
+    @expense = params[:expense].to_f
 
-    resulting_budget = budget - expense
+    if @total_income.present?
+      @resulting_budget = @total_income - @expense
+    else
+      render json: @resulting_budget.errors, status: :unprocessable_entity
+    end
 
-    render json: { result: resulting_budget }
+    render json: { result: @resulting_budget }
   end
 
   private
@@ -62,16 +75,13 @@ class TransactionController < ApplicationController
   end
 
   def income_params
-    params.require(:income).permit(:income_type)
+    params.require(:total_income).permit(:income_type)
   end
-
-  # def set_transaction
-  #   @transaction = transaction.find
-  # end
 
   def transaction_params
     # params.require(:transaction).permit(:transaction_type, :amount)
-    params.permit :transaction_type, :transaction_amount
+    params.permit :transaction_type, :transaction_amount, :total_income,
+                  :expense, :income_type, :expense_amount, :expense_type
 
   end
 end

@@ -13,12 +13,17 @@ Rails.application.routes.draw do
   resources :transaction # :controller => 'transaction'
   post 'transaction', to: 'transaction#create'
 
+  #TODO: transaction for singular (index)
+  # + map transactions for singular (show)
+
   # get '/*a', to: 'application#not_found'
 
   # Defines the root path route ("/")
   root 'users#index'
 
-  post 'budget/calculate_budget', to: 'budget#calculate_budget'
+  post 'transaction/calculate_budget', to: 'transaction#calculate_budget'
+  get 'transaction/show_expenses', to: 'transaction#show_expenses'
+
   post 'budget/create', to: 'budget#create'
 
   # OR
