@@ -45,5 +45,6 @@ group :development do
   gem 'pry-nav'
   gem 'pry-rails'
   gem 'rubocop'
+  gem 'rubocop-rails'
   gem 'rufo'
 end

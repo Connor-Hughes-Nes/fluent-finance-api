@@ -1,0 +1,70 @@
+require:
+  - rubocop-rails
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: single_quotes
+
+Style/StringLiteralsInInterpolation:
+  Enabled: true
+  EnforcedStyle: single_quotes
+
+#Layout/LineLength:
+#  Max: 140
+
+Layout/FirstHashElementIndentation:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: never
+
+Rails/DynamicFindBy:
+  Enabled: false
+
+#Naming/FileName:
+#  Enabled: false
+
+Lint/ShadowedException:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/ParameterLists:
+  Max: 7
+
+Metrics/MethodLength:
+  Max: 12
+
+Style/ClassAndModuleChildren:
+  Enabled: true
+  EnforcedStyle: compact
+
+Rails/LexicallyScopedActionFilter:
+  Enabled: false
+
+#RSpec/MultipleExpectations:
+#  Max: 30
+
+#RSpec/ExampleLength:
+#  Max: 60
+
+#RSpec/AnyInstance:
+#  Enabled: false
+
+#RSpec/MultipleMemoizedHelpers:
+#  Max: 6
+
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'vendor/**/*'
+    - 'db/schema.rb'
+    - 'lib/tasks/auto_annotate_models.rake'
+    - 'config/application.rb'
+    - 'config/routes.rb'
+    - 'spec/support/request_helpers.rb'
+  NewCops: enable

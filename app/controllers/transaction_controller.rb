@@ -26,13 +26,21 @@ class TransactionController < ApplicationController
     end
   end
 
+  def show
+    @transaction = Transaction.last
+
+    @result = @transaction.total_income - @transaction.expense
+
+    render json: @result, status: :ok
+  end
+
   # TODO: Check how i can do a show, with a specific value (expenses)
   #  + Pluralizing such values
 
-  def show_expenses
-    @expenses = Transaction(:expense)
-    render json: @expenses
-  end
+  # def show_expenses
+  #   @expenses = Transaction(:expense)
+  #   render json: @expenses, status: :ok
+  # end
 
   def capture_income
     @total_income = Transaction.new(transaction_params)
