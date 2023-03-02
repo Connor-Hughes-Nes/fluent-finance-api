@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   # PUT /users/{username}
   def update
     if @user.update(user_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = 'Profile updated'
     else
       render json: { errors: @user.errors.full_messages },
              status: :unprocessable_entity
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   # DELETE /users/{username}
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    flash[:success] = 'User deleted'
   end
 
   private
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
   def find_user
     @user = User.find_by(params[:id])
   rescue ActiveRecord::RecordNotFound
-    render json: { errors: "User not found" }, status: :not_found
+    render json: { errors: 'User not found' }, status: :not_found
   end
 
   def user_params

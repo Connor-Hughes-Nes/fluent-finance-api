@@ -10,7 +10,7 @@
 #  first_name :string
 #  last_name  :string
 #
-require "test_helper"
+require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   # test "the truth" do

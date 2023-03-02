@@ -82,6 +82,5 @@ class TransactionController < ApplicationController
     # params.require(:transaction).permit(:transaction_type, :amount)
     params.permit :transaction_type, :transaction_amount, :total_income,
                   :expense, :income_type, :expense_amount, :expense_type
-
   end
 end
